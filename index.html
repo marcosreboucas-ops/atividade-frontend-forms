@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulário Simples</title>
+   
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Trirong"/>
+
+
+    <style>
+       body {
+    color: black;
+    font-family: 'Trirong', sans-serif;
+    margin: 20px;
+    background: linear-gradient(-45deg, #808000, #556B2F, #A3A06B, #666600);
+    background-size: 400% 400%;
+    animation: moverFundoOliva 20s ease infinite;
+    min-height: 100vh;
+   
+}
+
+
+@keyframes moverFundoOliva {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+        #titulo{
+          text-align: center;
+        }
+       
+        #formulario{
+         
+        }
+        main {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: stretch;
+            gap: 20px;
+        }
+
+
+        form {
+            display: grid;
+            gap: 10px;
+        }
+
+
+        input, button {
+            padding: 8px;
+            color: black;
+        }
+
+
+        #resultado {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+
+       #card {
+    background-color: #CBBD93;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    border-style: solid;
+    border-radius: 25px;
+    width: 444px;
+    height: 444px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+        .botao:hover {
+    transform: scale(1.05);
+    background-color: #E6D7C3;
+}
+
+
+        .botao{
+          border-style: solid;
+          border-radius: 16px
+        }
+
+
+          #nome{
+            border-style: solid;
+            border-radius: 16px
+          }
+
+
+          #nascimento{
+            border-style: solid;
+            border-radius: 16px
+          }
+
+
+          #cor{
+            border-style: solid;
+            border-radius: 16px
+          }
+
+
+       
+
+
+
+
+
+
+
+
+    </style>
+</head>
+
+
+<body>
+
+
+    <main>
+        <h1 id="titulo">Formulário de Cadastro</h1>
+
+
+        <div id="card">
+
+
+          <div id="card1">
+            <form id="formulario">
+            <label for="nome">Nome:</label>
+            <input type="text" id="nome" required >
+
+
+            <label for="nascimento">Data de nascimento:</label>
+            <input type="date" id="nascimento" required>
+
+
+            <label for="cor">Cor preferida:</label>
+            <input type="color" id="cor" value="#000000">
+
+
+            <button type="submit" class="botao">Enviar</button>
+        </form>
+           
+          </div>
+
+
+          <div id="card2">
+
+
+            <section>
+            <h2>Dados preenchidos</h2>
+            <div id="resultado"></div>
+        </section>
+
+
+           
+          </div>
+
+
+        </div>
+
+
+
+
+       
+
+
+       
+    </main>
+
+
+    <script>
+        const formulario = document.getElementById("formulario");
+        const resultado = document.getElementById("resultado");
+
+
+        formulario.addEventListener("submit", function(event) {
+            event.preventDefault();
+
+
+            const nome = document.getElementById("nome").value;
+            const nascimento = document.getElementById("nascimento").value;
+            const cor = document.getElementById("cor").value;
+
+
+            resultado.innerHTML = "";
+
+
+            const pNome = document.createElement("p");
+            pNome.textContent = "Nome: " + nome;
+
+
+            const pNascimento = document.createElement("p");
+            pNascimento.textContent = "Nascimento: " + nascimento;
+
+
+            const pCor = document.createElement("p");
+            pCor.textContent = "Cor preferida: " + cor;
+
+
+            const amostraCor = document.createElement("div");
+            amostraCor.style.backgroundColor = cor;
+            amostraCor.style.width = "100px";
+            amostraCor.style.height = "40px";
+            amostraCor.style.border = "1px solid black";
+
+
+            resultado.appendChild(pNome);
+            resultado.appendChild(pNascimento);
+            resultado.appendChild(pCor);
+            resultado.appendChild(amostraCor);
+        });
+    </script>
+
+
+</body>
+</html>
+
+
+
+
